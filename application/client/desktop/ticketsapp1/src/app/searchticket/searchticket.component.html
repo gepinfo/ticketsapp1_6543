@@ -1,0 +1,74 @@
+<h2 class="screen-align">Searchticket</h2>
+<div id="template-i9cw" class="row">
+    <div id="template-ii6t" class="cell">
+        <label id="template-ip6o" class="label">name</label>
+        <input id="template-i634z" [(ngModel)]="tickets.name" [ngModelOptions]="{standalone: true}"
+        class="input form-control" />
+    </div>
+    <div id="template-i72j" class="cell">
+        <label id="template-io0al" class="label">description</label>
+        <input id="template-ifn6t" [(ngModel)]="tickets.description"
+        [ngModelOptions]="{standalone: true}" class="input form-control" />
+    </div>
+    <div id="template-iaqg" class="cell">
+        <label id="template-iz8d3" class="label">service types</label>
+        <div id="template-idjgj" class="">
+            <ng-select id="template-i6vf1" name="dynamicdropdown_template-i6vf1" [searchable]="true"
+            [virtualScroll]="true" [items]="servicetypesitemArray" bindLabel="name"
+            bindValue="name" [(ngModel)]="tickets.types" [ngModelOptions]="{standalone: true}"
+            (click)="servicetypesGpGetAllValues()" class="form-control"></ng-select>
+        </div>
+    </div>
+</div>
+<div id="template-igpts" class=""></div>
+<div id="template-ik51" class="row">
+    <div id="template-io87" class="cell">
+        <label id="template-idj95" class="label">severity</label>
+        <div id="template-i93g1" class="">
+            <ng-select id="template-iir5d" name="dynamicdropdown_template-iir5d" [searchable]="true"
+            [virtualScroll]="true" [items]="severityitemArray" bindLabel="name" bindValue="name"
+            [(ngModel)]="tickets.severity" [ngModelOptions]="{standalone: true}" (click)="severityGpGetAllValues()"
+            class="form-control"></ng-select>
+        </div>
+        <button id="template-i6l95" (click)="GpSearch()" class="button btn btn-primary">Search</button>
+    </div>
+    <div id="template-in31" class="cell">
+        <label id="template-iyqyl" class="label">assignees</label>
+        <div id="template-imwpf" class="">
+            <ng-select id="template-ihtg6" name="dynamicdropdown_template-ihtg6" [searchable]="true"
+            [virtualScroll]="true" [items]="assigneesitemArray" bindLabel="name" bindValue="name"
+            [(ngModel)]="tickets.assignees" [ngModelOptions]="{standalone: true}" (click)="assigneesGpGetAllValues()"
+            class="form-control"></ng-select>
+        </div>
+    </div>
+    <div id="template-i1b9" class="cell"></div>
+</div>
+<div name="grid_template-igl6h" class="">
+    <table id="table" class="table table-bordered  table-striped" data-show-header="true"
+    data-pagination="true" data-id-field="name">
+        <thead class="table table-hover">
+            <tr>
+                <th *ngFor="let column of columnDefs">{{column.headerName}}</th>
+            </tr>
+        </thead>
+        <tbody class="table-design" *ngIf="rowData.length==0">
+            <td style="text-align: center;" colspan="5">No Data Found</td>
+        </tbody>
+        <tbody class="table-design" *ngIf="rowData.length>0">
+            <tr (click)="onSelectionChanged(values)" *ngFor="let values of rowData | slice: (page-1) * paginationPageSize :(page-1) * paginationPageSize + paginationPageSize"
+            style="cursor: pointer;">
+                <td>{{ values.name }}</td>
+                <td>{{ values.description }}</td>
+                <td>{{ values.types }}</td>
+                <td>{{ values.severity }}</td>
+                <td>{{ values.assignees }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-right">
+        <ngb-pagination class="d-flex justify-content-start" [(page)]="page" [maxSize]="5"
+        [rotate]="true" [pageSize]="paginationPageSize" [collectionSize]="rowData.length"
+        [boundaryLinks]="true"></ngb-pagination>
+    </div>
+</div>
+<div id="myGrid" class=""></div>

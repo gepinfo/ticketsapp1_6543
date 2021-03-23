@@ -1,0 +1,15 @@
+<h2 class="screen-align">Createassignees</h2>
+<div id="template-ihgk" class="row">
+    <div id="template-idxf" class="cell">
+        <label id="template-ipwh" class="label">name</label>
+        <input id="template-ia25" placeholder="enter assignee" [(ngModel)]="assignees.name"
+        [ngModelOptions]="{standalone: true}" class="input form-control" />
+        <button id="template-ii31" (click)="GpCreate()" class="button btn btn-primary">create</button>
+    </div>
+    <div id="template-ifvy" class="cell">
+        <label id="template-iy01" class="label">description</label>
+        <input id="template-iirf" placeholder="description"
+        [(ngModel)]="assignees.description" [ngModelOptions]="{standalone: true}"
+        class="input form-control" />
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<h2 class="screen-align">Updateticket</h2>
+<div id="template-ijid" class="row">
+    <div id="template-ihi6" class="cell">
+        <label id="template-i0ni" class="label">name</label>
+        <input id="template-iqece" [(ngModel)]="tickets.name" [ngModelOptions]="{standalone: true}"
+        class="input form-control" />
+    </div>
+    <div id="template-i6vy" class="cell">
+        <label id="template-iavgn" class="label">description</label>
+        <input id="template-im7fd" [(ngModel)]="tickets.description"
+        [ngModelOptions]="{standalone: true}" class="input form-control" />
+    </div>
+    <div id="template-i4ou" class="cell">
+        <label id="template-ij6z2" class="label">types</label>
+        <div id="template-izcez" class="">
+            <ng-select id="template-it0c9" name="dynamicdropdown_template-it0c9" [searchable]="true"
+            [virtualScroll]="true" [items]="servicetypesitemArray" bindLabel="name"
+            bindValue="name" [(ngModel)]="tickets.types" [ngModelOptions]="{standalone: true}"
+            (click)="servicetypesGpGetAllValues()" class="form-control"></ng-select>
+        </div>
+    </div>
+</div>
+<div id="template-ia1d" class="row">
+    <div id="template-i4ly" class="cell">
+        <label id="template-iny5y" class="label">severity</label>
+        <div id="template-ifceq" class="">
+            <ng-select id="template-ijpuy" name="dynamicdropdown_template-ijpuy" [searchable]="true"
+            [virtualScroll]="true" [items]="severityitemArray" bindLabel="name" bindValue="name"
+            [(ngModel)]="tickets.severity" [ngModelOptions]="{standalone: true}" (click)="severityGpGetAllValues()"
+            class="form-control"></ng-select>
+        </div>
+        <button id="template-iea8l" (click)="GpUpdate()" class="button btn btn-primary">update</button>
+    </div>
+    <div id="template-ighy" class="cell">
+        <label id="template-itqnx" class="label">assignees</label>
+        <div id="template-i4ncy" class="">
+            <ng-select id="template-infej" name="dynamicdropdown_template-infej" [searchable]="true"
+            [virtualScroll]="true" [items]="assigneesitemArray" bindLabel="name" bindValue="name"
+            [(ngModel)]="tickets.assignees" [ngModelOptions]="{standalone: true}" (click)="assigneesGpGetAllValues()"
+            class="form-control"></ng-select>
+        </div>
+    </div>
+    <div id="template-izsn" class="cell"></div>
+</div>
